@@ -3,6 +3,10 @@ from langchain_openai import OpenAI
 from langchain.retrievers.self_query.base import SelfQueryRetriever
 from langchain.chains.query_constructor.base import AttributeInfo
 from langchain_community.vectorstores import Chroma
+from langchain.prompts import PromptTemplate
+from langchain.chains import RetrievalQA
+from langchain.chat_models import ChatOpenAI
+
 
 
 embedding_function = OpenAIEmbeddings()
@@ -15,7 +19,7 @@ document_content_description="A fragrance database that contains information on 
 llm = OpenAI(temperature=0)
 retriever = SelfQueryRetriever.from_llm(llm,
     vectorstore=db, 
-    document_contents=document_content_description,
+    # document_contents=document_content_description,
     verbose=True)
 
 
