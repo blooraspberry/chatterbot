@@ -1,3 +1,5 @@
 *.csv
 exploration/
 vector_db/
+document/
+*.sqlite3
